@@ -29,7 +29,7 @@ export class LocationProvider {
       .catch(this.handleError)
   }
 
-  public calendarCreate(title: string, location: string, notes: string, startDate: Date, endDate: Date) {
+  public calendarCreate(title: string, location: string, notes: string, startDate: Date, endDate: Date): void {
     Calendar.createEventInteractively(title, location, notes, startDate, endDate).then(() => {
       console.log("Created");
     }).catch((error) => {
