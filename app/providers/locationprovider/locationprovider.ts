@@ -12,9 +12,18 @@ import {Calendar} from "ionic-native";
 */
 @Injectable()
 export class LocationProvider {
+  
+  public savedFlyovers: any[];
 
   constructor(public http: Http) {
-
+   if (localStorage.getItem("savedFlyovers") === null) {
+     this.savedFlyovers = [];
+     console.log("was null in storage, had to make")
+   }
+   else {
+     this.savedFlyovers = JSON.parse(localStorage.getItem("savedFlyovers"));
+     console.log("was in storage", this.savedFlyovers);
+   }
   }
 
   public getFlyOvers(lat: number, long: number): Observable<any> {
@@ -30,11 +39,18 @@ export class LocationProvider {
   }
 
   public calendarCreate(title: string, location: string, notes: string, startDate: Date, endDate: Date): void {
-    Calendar.createEventInteractively(title, location, notes, startDate, endDate).then(() => {
-      console.log("Created");
+    Calendar.createEventInteractively(title, location, notes, startDate, endDate).then((success) => {
+      console.log("created");
+      this.savedFlyovers.push({title, startDate});
+      localStorage.setItem("savedFlyovers", JSON.stringify(this.savedFlyovers));
     }).catch((error) => {
+      console.log("not created");
       console.log(error);
     })
+  }
+  
+  public getSavedFlyovers(): any[] {
+    return this.savedFlyovers;
   }
 
   private extractData(res: Response): Object {

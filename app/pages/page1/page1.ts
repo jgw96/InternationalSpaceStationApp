@@ -1,5 +1,6 @@
 import {Page, Alert, NavController, Loading} from 'ionic-angular';
 import {HTTP_PROVIDERS} from 'angular2/http';
+import {Geolocation} from "ionic-native";
 
 import {LocationProvider} from "../../providers/locationprovider/locationprovider";
 import {TimePipe} from "../../pipes/TimePipe";
@@ -20,7 +21,7 @@ export class Page1 {
       content: "Getting flyovers"
     })
     this.nav.present(loading).then(() => {
-      navigator.geolocation.getCurrentPosition((position) => {
+      Geolocation.getCurrentPosition().then((position) => {
         this.locProvider.getFlyOvers(position.coords.latitude, position.coords.longitude)
           .subscribe(
           data => {
@@ -64,6 +65,10 @@ export class Page1 {
     });
 
     this.nav.present(confirm);
+  }
+  
+  public seeSavedEvents(): void {
+    console.log("clicked");
   }
 
 }

@@ -25,7 +25,8 @@
     "cordova-plugin-splashscreen",
     "cordova-plugin-statusbar",
     "ionic-plugin-keyboard",
-    "cordova-plugin-calendar"
+    "cordova-plugin-calendar",
+    "de.appplant.cordova.plugin.local-notification"
   ],
   "cordovaPlatforms": [
     "ios",
