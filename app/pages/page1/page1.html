@@ -1,0 +1,16 @@
+<ion-navbar primary *navbar>
+  <ion-title>Flyovers</ion-title>
+</ion-navbar>
+
+<ion-content class="page1">
+  <h2 padding>The ISS will be over your location on these days...</h2>
+  <ion-list>
+    <ion-item *ngFor="#flyover of flyovers">
+      <h2>{{flyover.risetime | time | date:"medium"}}</h2>
+      <h3>Duration: {{flyover.duration | stm}} minutes</h3>
+      <button (click)="createEvent('ISS Flyover', 'My Location', 'International Space Station FlyOver', flyover.risetime)" clear item-right>
+        <ion-icon name="star"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
+</ion-content>
