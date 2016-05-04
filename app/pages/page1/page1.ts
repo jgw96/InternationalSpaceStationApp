@@ -24,7 +24,6 @@ export class Page1 {
         this.locProvider.getFlyOvers(position.coords.latitude, position.coords.longitude)
           .subscribe(
           data => {
-            console.log(data.response);
             this.flyovers = data.response
             loading.dismiss();
           },
