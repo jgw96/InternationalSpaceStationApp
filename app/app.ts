@@ -1,6 +1,6 @@
 import {App, Platform} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
-import {TabsPage} from './pages/tabs/tabs';
+import {IntroPage} from "./pages/intro/intro";
 import 'rxjs/Rx';
 
 
@@ -9,7 +9,7 @@ import 'rxjs/Rx';
   config: {} // http://ionicframework.com/docs/v2/api/config/Config/
 })
 export class MyApp {
-  rootPage: any = TabsPage;
+  rootPage: any = IntroPage;
 
   constructor(platform: Platform) {
     platform.ready().then(() => {
