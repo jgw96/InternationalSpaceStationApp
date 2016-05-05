@@ -4,10 +4,15 @@
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-navbar *navbar>
-  <ion-title>SavedEvents</ion-title>
+<ion-navbar primary *navbar>
+  <ion-title>Added to Calendar</ion-title>
 </ion-navbar>
 
-<ion-content padding class="saved-events">
-  
+<ion-content class="saved-events">
+  <ion-list>
+    <ion-item *ngFor="#flyover of flyovers">
+      <h2>{{flyover.title}}</h2>
+      <h3>{{flyover.startDate | trim}}</h3>
+    </ion-item>
+  </ion-list>
 </ion-content>

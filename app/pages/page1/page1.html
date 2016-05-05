@@ -9,12 +9,12 @@
       <h2>{{flyover.risetime | time | date:"medium"}}</h2>
       <h3>Duration: {{flyover.duration | stm}} minutes</h3>
       <button (click)="createEvent('ISS Flyover', 'My Location', 'International Space Station FlyOver', flyover.risetime)" clear item-right>
-        <ion-icon name="star"></ion-icon>
+        <ion-icon name="calendar"></ion-icon>
       </button>
     </ion-item>
   </ion-list>
 </ion-content>
 
 <button (click)="seeSavedEvents()" id="fabButton" fab fab-right fab-bottom secondary>
-  <ion-icon name="search"></ion-icon>
+  <ion-icon name="star"></ion-icon>
 </button>

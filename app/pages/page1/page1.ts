@@ -5,12 +5,14 @@ import {Geolocation} from "ionic-native";
 import {LocationProvider} from "../../providers/locationprovider/locationprovider";
 import {TimePipe} from "../../pipes/TimePipe";
 import {StmPipe} from "../../pipes/STMPipe";
+import {SavedEventsPage} from "../saved-events/saved-events";
 
 
 @Page({
   templateUrl: 'build/pages/page1/page1.html',
   providers: [HTTP_PROVIDERS, LocationProvider],
-  pipes: [TimePipe, StmPipe]
+  pipes: [TimePipe, StmPipe],
+  directives: [SavedEventsPage]
 })
 export class Page1 {
 
@@ -69,6 +71,7 @@ export class Page1 {
   
   public seeSavedEvents(): void {
     console.log("clicked");
+    this.nav.push(SavedEventsPage);
   }
 
 }

@@ -1,5 +1,8 @@
 import {Page, NavController} from 'ionic-angular';
 
+import {LocationProvider} from "../../providers/locationprovider/locationprovider";
+import {TrimPipe} from "../..//pipes/TrimPipe";
+
 /*
   Generated class for the SavedEventsPage page.
 
@@ -8,7 +11,17 @@ import {Page, NavController} from 'ionic-angular';
 */
 @Page({
   templateUrl: 'build/pages/saved-events/saved-events.html',
+  providers: [LocationProvider],
+  pipes: [TrimPipe]
 })
 export class SavedEventsPage {
-  constructor(public nav: NavController) {}
+  
+  public flyovers: any[];
+  
+  private onPageDidEnter(): void {
+    this.flyovers = this.locProvider.getSavedFlyovers();
+  }
+  
+  constructor(private nav: NavController, private locProvider: LocationProvider) {}
+  
 }
