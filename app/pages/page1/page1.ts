@@ -1,6 +1,6 @@
 import {Page, Alert, NavController, Loading} from 'ionic-angular';
 import {HTTP_PROVIDERS} from 'angular2/http';
-import {Geolocation} from "ionic-native";
+import {Geolocation, SocialSharing} from "ionic-native";
 
 import {LocationProvider} from "../../providers/locationprovider/locationprovider";
 import {TimePipe} from "../../pipes/TimePipe";
@@ -70,8 +70,13 @@ export class Page1 {
   }
   
   public seeSavedEvents(): void {
-    console.log("clicked");
     this.nav.push(SavedEventsPage);
+  }
+  
+  public share(shareMessage: number): void {
+    const shareDate: string = new Date(shareMessage * 1000).toString();
+    const finalShare: string = `Look up to see the international space station on ${shareDate}`;
+    SocialSharing.share(finalShare);
   }
 
 }

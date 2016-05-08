@@ -5,13 +5,21 @@
 <ion-content class="page1">
   <h2 padding>The ISS will be over your location on these days...</h2>
   <ion-list>
-    <ion-item *ngFor="#flyover of flyovers">
-      <h2>{{flyover.risetime | time | date:"medium"}}</h2>
-      <h3>Duration: {{flyover.duration | stm}} minutes</h3>
-      <button (click)="createEvent('ISS Flyover', 'My Location', 'International Space Station FlyOver', flyover.risetime)" clear item-right>
+    <ion-item-sliding *ngFor="#flyover of flyovers">
+      <ion-item>
+        <h2>{{flyover.risetime | time | date:"medium"}}</h2>
+        <h3>Duration: {{flyover.duration | stm}} minutes</h3>
+        <button (click)="createEvent('ISS Flyover', 'My Location', 'International Space Station FlyOver', flyover.risetime)" clear
+          item-right>
         <ion-icon name="calendar"></ion-icon>
       </button>
-    </ion-item>
+      </ion-item>
+      <ion-item-options>
+        <button secondary (click)="share(flyover.risetime)">
+          <ion-icon name="share"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
 </ion-content>
 

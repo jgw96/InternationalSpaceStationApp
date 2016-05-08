@@ -26,7 +26,8 @@
     "cordova-plugin-statusbar",
     "ionic-plugin-keyboard",
     "cordova-plugin-calendar",
-    "de.appplant.cordova.plugin.local-notification"
+    "de.appplant.cordova.plugin.local-notification",
+    "cordova-plugin-x-socialsharing"
   ],
   "cordovaPlatforms": [
     "ios",
