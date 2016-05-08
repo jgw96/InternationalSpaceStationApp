@@ -15,7 +15,7 @@ import {TabsPage} from "../tabs/tabs";
 export class IntroPage {
   constructor(public nav: NavController) {}
   
-  goToMain() {
+  public goToMain(): void {
     this.nav.setRoot(TabsPage);
   }
   
