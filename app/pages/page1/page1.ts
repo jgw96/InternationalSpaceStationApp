@@ -19,7 +19,7 @@ export class Page1 {
   public flyovers: any[];
 
   private onPageLoaded(): void {
-    let loading = Loading.create({
+    const loading = Loading.create({
       content: "Getting flyovers"
     })
     this.nav.present(loading).then(() => {
@@ -44,7 +44,7 @@ export class Page1 {
   }
 
   public createEvent(title: string, location: string, notes: string, startDate: any): void {
-    let fixedStartDate: Date = new Date(startDate * 1000);
+    const fixedStartDate: Date = new Date(startDate * 1000);
 
     const confirm = Alert.create({
       title: 'Add this to your Calendar?',
