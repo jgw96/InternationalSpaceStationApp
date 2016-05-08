@@ -2,6 +2,10 @@ import {App, Platform} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 import {IntroPage} from "./pages/intro/intro";
 import 'rxjs/Rx';
+import {enableProdMode} from "angular2/core";
+
+//enable production mode
+enableProdMode();
 
 
 @App({

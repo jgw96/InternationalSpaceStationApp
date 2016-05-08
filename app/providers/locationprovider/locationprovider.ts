@@ -18,11 +18,9 @@ export class LocationProvider {
   constructor(public http: Http) {
    if (localStorage.getItem("savedFlyovers") === null) {
      this.savedFlyovers = [];
-     console.log("was null in storage, had to make")
    }
    else {
      this.savedFlyovers = JSON.parse(localStorage.getItem("savedFlyovers"));
-     console.log("was in storage", this.savedFlyovers);
    }
   }
 
